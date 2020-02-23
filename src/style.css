@@ -9,7 +9,7 @@ main {
         margin: auto;
 }
 
-ul {
+.list, .paragraphs {
     display: flex;
     flex-direction: column;
 }
