@@ -43,5 +43,8 @@ module.exports = {
         filename: '[name].js'
     },
     plugins: [htmlPlugin, copyPlugin],
-    mode: isProduction ? 'production' : 'development'
+    mode: isProduction ? 'production' : 'development',
+    devServer: {
+        port: 8888
+    }
 };

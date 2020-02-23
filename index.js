@@ -2,17 +2,13 @@ const express = require('express');
 const proxy = require('express-http-proxy');
 const bodyParser = require('body-parser');
 
-const PORT = 3210;
-
+const PORT = 3333;
+const PROXY_PORT = 8888
 const app = express();
 const NOTES_URL = '/notes';
 
 const isProduction = !!process.env.WEBPACK_PRODUCTION;
 
-const headers = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-};
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -57,7 +53,7 @@ app.delete(NOTES_URL, (req,res) => {
 
 app.get('*', isProduction
     ? express.static('/dist')
-    : proxy('http://localhost:8081')
+    : proxy('http://localhost:8888')
 );
 
 
